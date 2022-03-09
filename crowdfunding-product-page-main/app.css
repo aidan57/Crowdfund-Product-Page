@@ -5,6 +5,9 @@
 	/* Neutral Colors */
 	--Black: hsl(0, 0%, 0%);
 	--Dark-gray: hsl(0, 0%, 48%);
+	/* Sizing */
+	--card-border-radius: 10px;
+	--card-margin: 0 1.5rem 2rem 1.5rem;
 }
 
 .attribution {
@@ -20,15 +23,307 @@
 	box-sizing: border-box;
 	margin: 0;
 	padding: 0;
-	overflow: visible;
+	overflow: auto;
+	list-style: none;
 }
 
 img {
 	max-width: 100%;
 }
 
+/* TOP IMAGE */
 body {
+	background-color: whitesmoke;
+	position: relative;
 	background-image: url(images/image-hero-mobile.jpg);
 	background-repeat: no-repeat;
 	background-size: contain;
+	font-family: 'commissioner', sans-serif;
 }
+
+/* HEADER */
+.header {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: space-between;
+	margin: 2rem 1.5rem;
+}
+
+.logo {
+	position: absolute;
+	z-index: 5;
+	top: 2rem;
+	left: 1.5rem;
+}
+
+.nav {
+	background-color: transparent;
+	border: none;
+	cursor: pointer;
+}
+
+.x {
+	display: none;
+}
+
+.x.open {
+	display: block;
+	position: absolute;
+	z-index: 5;
+	top: 2rem;
+	right: 1.5rem;
+}
+
+.hamburger {
+	display: block;
+}
+
+.hamburger.open {
+	display: none;
+}
+
+nav.open {
+	position: absolute;
+	top: 3.5rem;
+	left: 0;
+	z-index: 5;
+	display: block;
+	background-color: white;
+	width: calc(100% - 3rem);
+	margin: 0 1.5rem;
+	margin: 2rem 1.5rem 0 1.5rem;
+	line-height: 2.35;
+	border-radius: var(--card-border-radius);
+}
+
+nav {
+	display: none;
+}
+
+hr {
+	border-top: .01rem solid var(--Dark-gray);
+	opacity: 35%;
+}
+
+nav ul li {
+	padding: 1rem;
+	font-weight: 500;
+}
+
+nav ul a {
+	text-decoration: none;
+	color: black;
+}
+
+nav ul a:hover {
+	cursor: pointer;
+	color: var(--Dark-gray);
+}
+
+.overlay.active {
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	z-index: 4;
+	background-color: black;
+	opacity: 40%;
+}
+
+.overlay {
+	display: none;
+}
+
+/* ITEM CONTAINER */
+.m-logo {
+	position: absolute;
+	top: 15.4rem;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.item-container {
+	z-index: 3;
+	background-color: white;
+	margin: 10.5rem 1.5rem 2rem 1.5rem;
+	padding: 3rem 1rem 2rem 1rem;
+	text-align: center;
+	border-radius: var(--card-border-radius);
+}
+
+.item-container.change {
+	z-index: 3;
+	background-color: white;
+	margin: 11.45rem 1.5rem 3rem 1.5rem;
+	padding: 3rem 1rem 2rem 1rem;
+	text-align: center;
+	border-radius: var(--card-border-radius);
+}
+
+.item-container h2 {
+	font-size: 22px;
+	font-weight: 700;
+	margin-bottom: 1rem;
+	padding: 0 1rem;
+}
+
+.item-container p {
+	color: var(--Dark-gray);
+	line-height: 1.5;
+	margin-bottom: 1rem;
+}
+
+.item-container button {
+	text-decoration: none;
+	border: none;
+}
+
+.buttons {
+	display: flex;
+	justify-content: space-between;
+}
+
+.back-project-btn {
+	background-color: var(--Moderate-cyan);
+	color: white;
+	font-size: 16px;
+	font-weight: 700;
+	padding: 1rem 2.5rem;
+	border-radius: 35px;
+}
+
+.bookmark-btn {
+	background-color: transparent;
+}
+
+/* STATS CONTAINER */
+.stats-container {
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+	justify-content: center;
+	background-color: white;
+	line-height: 1.5;
+	margin: var(--card-margin);
+	border-radius: var(--card-border-radius);
+	padding: 2rem 0;
+}
+
+.stats-container.change {
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+	justify-content: center;
+	background-color: white;
+	line-height: 1.5;
+	margin: -1rem 1.5rem 2rem 1.5rem;
+	border-radius: var(--card-border-radius);
+	padding: 2rem 0;
+}
+
+.stats-container h2 {
+	font-size: 35px;
+}
+
+.stats-container p {
+	color: var(--Dark-gray);
+}
+
+.stats-container hr {
+	margin: 1.5rem auto 1rem auto;
+	width: 6rem;
+}
+
+.stat-bar {
+	height: 1rem;
+	background-color: whitesmoke;
+	margin: 2rem 1rem 0 1rem;
+	border-radius: 30px;
+}
+
+.stat-update {
+	width: 75%;
+	height: 1rem;
+	border-radius: 30px;
+	background-color: var(--Moderate-cyan);
+}
+
+/* DISCRIPTION CONTAINER */
+.discrip-container {
+	background-color: white;
+	margin: var(--card-margin);
+	padding: 2rem 1rem;
+	line-height: 1.5;
+	border-radius: var(--card-border-radius);
+}
+
+.discrip-container h2 {
+	font-size: 20px;
+	margin-bottom: 1rem;
+}
+
+.discrip-container p {
+	color: var(--Dark-gray);
+	margin-bottom: 1rem;
+}
+
+.discrip-container p:nth-of-type(2) {
+	margin-bottom: 2rem;
+}
+
+/* PLEDGE CONTAINERS */
+.pledge-container {
+	margin: 1rem 0;
+	border: .1px solid var(--Dark-gray);
+	border-radius: var(--card-border-radius);
+	padding: 1rem;
+}
+
+.type {
+	font-size: 16px;
+	font-weight: 700;
+}
+
+.price {
+	color: var(--Moderate-cyan);
+	font-size: 16px;
+	font-weight: 500;
+	margin-bottom: 1rem;
+}
+
+.pledge-container h2 {
+	display: flex;
+	align-items: center;
+	font-size: 35px;
+	font-weight: 700;
+}
+
+.pledge-container span {
+	color: var(--Dark-gray);
+	font-size: 16px;
+	font-weight: 400;
+	margin-left: .5rem;
+}
+
+.reward-btn {
+	border: none;
+	background-color: var(--Moderate-cyan);
+	color: whitesmoke;
+	font-weight: 700;
+	font-size: 16px;
+	padding: 1rem 2rem;
+	border-radius: 30px;
+}
+
+.pledge-container.out-of-stock {
+	opacity: 40%;
+}
+
+.reward-btn.out-of-stock-btn {
+	background-color: var(--Dark-gray);
+}
+
+/* WORK ON ACTIVE STATES */
