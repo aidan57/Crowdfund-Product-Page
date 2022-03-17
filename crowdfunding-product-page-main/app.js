@@ -117,7 +117,7 @@ overlay.addEventListener('click', ()=> {
 
 
 // INTERACTIVE PLEDGING
-const userInput = `${'$'} pledgeAmount1.innerText`;
+// const userInput = `${'$'} pledgeAmount1.innerText`;
 
 
 
