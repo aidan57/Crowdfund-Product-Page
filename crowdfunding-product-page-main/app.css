@@ -10,15 +10,6 @@
 	--card-margin: 0 1.5rem 2rem 1.5rem;
 }
 
-.attribution {
-	font-size: 11px;
-	text-align: center;
-}
-
-.attribution a {
-	color: hsl(228, 45%, 44%);
-}
-
 * {
 	box-sizing: border-box;
 	margin: 0;
@@ -91,7 +82,6 @@ nav.open {
 	display: block;
 	background-color: white;
 	width: calc(100% - 3rem);
-	margin: 0 1.5rem;
 	margin: 2rem 1.5rem 0 1.5rem;
 	line-height: 2.35;
 	border-radius: var(--card-border-radius);
@@ -114,6 +104,7 @@ nav ul li {
 nav ul a {
 	text-decoration: none;
 	color: black;
+	transition: ease-in-out 100ms;
 }
 
 nav ul a:hover {
@@ -146,6 +137,8 @@ nav ul a:hover {
 }
 
 .item-container {
+	display: flex;
+	flex-direction: column;
 	z-index: 3;
 	background-color: white;
 	margin: 10.5rem 1.5rem 2rem 1.5rem;
@@ -191,12 +184,57 @@ nav ul a:hover {
 	color: white;
 	font-size: 16px;
 	font-weight: 700;
-	padding: 1rem 2.5rem;
+	padding: 1rem 3.1rem;
 	border-radius: 35px;
+	cursor: pointer;
+	transition: ease-in-out 100ms;
+}
+
+.back-project-btn:hover {
+	background-color: var(--Dark-cyan);
+}
+
+.bookmark-btn button {
+	background-color: transparent;
+	cursor: pointer;
+	display: flex;
+	transition: 100ms ease-in-out;
+}
+
+.bookmark-btn p {
+	margin-bottom: 0;
+	display: none;
 }
 
 .bookmark-btn {
-	background-color: transparent;
+	transition: ease-in-out 100ms;
+}
+
+.bookmark-btn.clicked p {
+	color: var(--Dark-cyan);
+}
+
+.bookmark-btn.clicked .bookmark {
+	display: none;
+}
+
+.bookmark-btn .bookmarked {
+	display: none;
+}
+
+.bookmark-btn.clicked circle {
+	fill: var(--Dark-cyan);
+	transition: 100ms ease-in-out;
+}
+
+.bookmark-btn.clicked path {
+	fill: white;
+	transition: 100ms ease-in-out;
+}
+
+.bookmark-btn:hover {
+	opacity: 70%;
+	transition: 100ms ease-in-out;
 }
 
 /* STATS CONTAINER */
@@ -316,6 +354,12 @@ nav ul a:hover {
 	font-size: 16px;
 	padding: 1rem 2rem;
 	border-radius: 30px;
+	cursor: pointer;
+	transition: ease-in-out 100ms;
+}
+
+.reward-btn:hover {
+	background-color: var(--Dark-cyan);
 }
 
 .pledge-container.out-of-stock {
@@ -324,6 +368,139 @@ nav ul a:hover {
 
 .reward-btn.out-of-stock-btn {
 	background-color: var(--Dark-gray);
+	cursor: default;
+}
+/* DEFAULT MODAL */
+.default-modal.open {
+	display: block;
+	position: absolute;
+	top: 5.5rem;
+	left: 0;
+	z-index: 5;
+	display: block;
+	background-color: white;
+	width: calc(100% - 3rem);
+	margin: 2rem 1.5rem 0 1.5rem;
+	line-height: 1.5;
+	border-radius: var(--card-border-radius);
+	padding: 2rem 1rem;
 }
 
-/* WORK ON ACTIVE STATES */
+.default-modal {
+	display: none;
+}
+
+.default-modal.open .pledge-container.clicked {
+	border: 2px solid var(--Moderate-cyan);
+	transition: 100ms ease-in-out;
+}
+
+.default-modal.open .pledge-container.clicked .enter-pledge hr {
+	margin: 0;
+}
+
+.default-modal.open .pledge-container .enter-pledge {
+	display: none;
+}
+
+.default-modal.open .pledge-container.clicked .enter-pledge {
+	display: block;
+}
+
+.default-modal.open div img {
+	cursor: pointer;
+}
+
+.default-modal.open h2 {
+	font-size: 20px;
+}
+
+.default-modal.open p {
+	color: var(--Dark-gray);
+	margin-bottom: 1rem;
+}
+
+.default-modal.open .modal-header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin-bottom: 1rem;
+}
+
+.default-modal.open .radio {
+	display: flex;
+	align-items: center;
+	margin-bottom: 1rem;
+}
+
+.default-modal.open input[type='radio'] {
+	cursor: pointer;
+	appearance: none;
+	margin-left: .3rem;
+	background-color: white;
+	border-radius: 50%;
+	border: 1px solid var(--Dark-gray);
+	width: 27px;
+	height: 27px;
+	transition: 100ms ease-in-out;
+}
+
+.default-modal.open #out-of-stock {
+	cursor: default;
+}
+
+.default-modal.open input:checked {
+	border: 6px solid var(--Dark-gray);
+	/* border-style: hidden; */
+	background-color: var(--Moderate-cyan);
+}
+
+.default-modal.open h3 {
+	margin-left: 1rem;
+	margin-bottom: 0;
+}
+
+/* MEDIA QUERIES */
+@media (max-width: 370px) {
+	.back-project-btn {
+		font-size: 14px;
+		padding: 1rem 2rem;
+	}
+}
+
+@media (min-width: 502px) {
+	.bookmark-btn.clicked .bookmarked {
+		display: block;
+		padding-left: 1rem;
+		padding-right: 1.5rem;
+	}
+}
+
+@media (min-width: 490px) {
+	.bookmark-btn p {
+		margin-bottom: 0;
+		display: block;
+	}
+
+	.bookmark-btn button {
+		align-items: center;
+		background-color: whitesmoke;
+		font-size: 16px;
+		font-weight: 700;
+		color: var(--Dark-gray);
+		padding-right: 1.5rem;
+		border-radius: 30px;
+	}
+
+	.bookmark-btn.clicked button {
+		padding-right: 0;
+	}
+
+	.bookmark-btn svg {
+		margin-right: 1rem;
+	}
+
+	.bookmark-btn.clicked svg {
+		margin-right: 0;
+	}
+}
