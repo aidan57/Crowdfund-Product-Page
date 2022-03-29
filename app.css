@@ -694,7 +694,7 @@ input[id=pa3]:focus {
 	}
 }
 
-@media (min-width: 502px) {
+@media (min-width: 517px) {
 	.bookmark-btn.clicked .bookmarked {
 		display: block;
 		padding-left: 1rem;
