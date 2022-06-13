@@ -217,60 +217,70 @@ form3.addEventListener('submit', (e)=> {
     blackAmount2.innerHTML = '63<span>left</span>'
 })
 
+let totalBackers = 5007;
+let totalMoney = 89914;
+
+
+
 forms.forEach(form => {
     form.addEventListener('submit', (e)=> {
         e.preventDefault();
 
-// UPDATING STATS
+///////////////////        
+// UPDATING STATS//
+///////////////////    
+     
         // PLEDGE AMOUNT 1
-        const priceUpdate1 = pledgeAmount1.value;
-        let totalMoney = 89914;
-        let newTotal1 = totalMoney + parseInt(priceUpdate1);
-        if(`${newTotal1}`.length === 5) {
-            let spreadTotal = [...`${newTotal1}`];
-            spreadTotal.splice(2, 0, ',')
-            const moneyBacked = spreadTotal.reduce((total, el) => total + el);
-            document.querySelector('#money-total').innerText = `$${moneyBacked}`;
-        } else if(`${newTotal1}`.length === 6) {
-            let spreadTotal = [...`${newTotal1}`];
-            spreadTotal.splice(3, 0, ',')
-            const moneyBacked = spreadTotal.reduce((total, el) => total + el);
-            document.querySelector('#money-total').innerText = `$${moneyBacked}`;
-        }
+        let priceUpdate = parseInt(pledgeAmount1.value);
+        newPrice = totalMoney += priceUpdate; 
+        document.querySelector('#money-total').innerText = `$${newPrice1.toLocaleString()}`;
+        
+       
 
         // PLEDGE AMOUNT 2
-        const priceUpdate2 = pledgeAmount2.value;
-        let newTotal2 = totalMoney + parseInt(priceUpdate2);
-        if(`${newTotal2}`.length === 5) {
-            let spreadTotal = [...`${newTotal2}`];
-            spreadTotal.splice(2, 0, ',')
-            const moneyBacked = spreadTotal.reduce((total, el) => total + el);
-            document.querySelector('#money-total').innerText = `$${moneyBacked}`;
-        } else if(`${newTotal2}`.length === 6) {
-            let spreadTotal = [...`${newTotal2}`];
-            spreadTotal.splice(3, 0, ',')
-            const moneyBacked = spreadTotal.reduce((total, el) => total + el);
-            document.querySelector('#money-total').innerText = `$${moneyBacked}`;
-        }
+        // let priceUpdate2 = 
+        newPrice2 = totalMoney += parseInt(pledgeAmount2.value);
+        document.querySelector('#money-total').innerText = `$${newPrice2.toLocaleString()}`;
+                                                            
+
+
+
+        // let newTotal2 = totalMoney + parseInt(priceUpdate2);
+        // if(`${newTotal2}`.length === 5) {
+        //     let spreadTotal = [...`${newTotal2}`];
+        //     spreadTotal.splice(2, 0, ',')
+        //     const moneyBacked = spreadTotal.reduce((total, el) => total + el);
+        //     document.querySelector('#money-total').innerText = `$${moneyBacked}`;
+        // } else if(`${newTotal2}`.length === 6) {
+        //     let spreadTotal = [...`${newTotal2}`];
+        //     spreadTotal.splice(3, 0, ',')
+        //     const moneyBacked = spreadTotal.reduce((total, el) => total + el);
+        //     document.querySelector('#money-total').innerText = `$${moneyBacked}`;
+        // }
 
         // PLEDGE AMOUNT 3
-        const priceUpdate3 = pledgeAmount3.value;
-        let newTotal3 = totalMoney + parseInt(priceUpdate3);
-        if(`${newTotal3}`.length === 5) {
-            let spreadTotal = [...`${newTotal3}`];
-            spreadTotal.splice(2, 0, ',')
-            const moneyBacked = spreadTotal.reduce((total, el) => total + el);
-            document.querySelector('#money-total').innerText = `$${moneyBacked}`;
-        } else if(`${newTotal3}`.length === 6) {
-            let spreadTotal = [...`${newTotal3}`];
-            spreadTotal.splice(3, 0, ',')
-            const moneyBacked = spreadTotal.reduce((total, el) => total + el);
-            document.querySelector('#money-total').innerText = `$${moneyBacked}`;
-        }
+        newPrice3 = totalMoney += parseInt(pledgeAmount3.value);
+        document.querySelector('#money-total').innerText = `$${newPrice3.toLocaleString()}`;
+
+
+        // const priceUpdate3 = pledgeAmount3.value;
+        // let newTotal3 = totalMoney + parseInt(priceUpdate3);
+        // if(`${newTotal3}`.length === 5) {
+        //     let spreadTotal = [...`${newTotal3}`];
+        //     spreadTotal.splice(2, 0, ',')
+        //     const moneyBacked = spreadTotal.reduce((total, el) => total + el);
+        //     document.querySelector('#money-total').innerText = `$${moneyBacked}`;
+        // } else if(`${newTotal3}`.length === 6) {
+        //     let spreadTotal = [...`${newTotal3}`];
+        //     spreadTotal.splice(3, 0, ',')
+        //     const moneyBacked = spreadTotal.reduce((total, el) => total + el);
+        //     document.querySelector('#money-total').innerText = `$${moneyBacked}`;
+        // }
 
         // TOTAL BACKERS 
-        document.querySelector('#people-total').innerText = '5,008'
-       
+        // document.querySelector('#people-total').innerText = '5,008'
+       totalBackers++;
+       document.getElementById("people-total").innerHTML = totalBackers.toLocaleString()
         
 
         pledgeContainerRadio1.checked=false;
@@ -304,7 +314,6 @@ gotItBtn.addEventListener('click', ()=> {
     overlay.classList.remove('active')
     completedModal.classList.remove('open')
 })
-
 
 
 
